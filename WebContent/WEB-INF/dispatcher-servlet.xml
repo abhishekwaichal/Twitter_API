@@ -12,15 +12,12 @@
 		configure as beans -->
 	<context:component-scan base-package="com.tweet" />
 
-
 	<!-- bean definitions here -->
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="mappings">
-			<props>
-				<prop key="user">userController</prop>
-			</props>
-		</property>
-	</bean>
+
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
+		<property name="mappings"> <props> <prop key="user">userController</prop> 
+		</props> </property> </bean> -->
+	
 	<bean id="userController" class="com.tweet.controller.UserController" />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -31,5 +28,35 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+
+
+
+	<bean id="userDao" class="com.tweet.dao.UserDao">
+        <property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="tweetDao" class="com.tweet.dao.TweetDao">
+        <property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="followDao" class="com.tweet.dao.FollowDao">
+        <property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="userService" class="com.tweet.service.UserService">
+	</bean>
+
+
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <context:property-placeholder location="/WEB-INF/jdbc.properties"/>
+
+
 
 </beans>
