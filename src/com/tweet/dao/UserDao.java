@@ -3,7 +3,6 @@
  */
 package com.tweet.dao;
 
-
 import com.tweet.domain.User;
 
 /**
@@ -12,11 +11,11 @@ import com.tweet.domain.User;
  */
 public interface UserDao {
 
-	public abstract void addUser(User user);
+	public abstract boolean addUser(User user);
 
-	public abstract void deleteUser(Integer userId);
+	public abstract boolean deleteUser(Integer userId);
 
-	public abstract void updateUser(Integer userId);
+	public abstract boolean updateUser(Integer userId);
 
 	
 	public abstract User getUser(Integer userId);

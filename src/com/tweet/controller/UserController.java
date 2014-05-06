@@ -3,15 +3,17 @@
  */
 package com.tweet.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.tweet.domain.User;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import com.tweet.service.UserService;
+
+//import com.tweet.domain.User;
+//import com.tweet.service.UserService;
 
 /**
  * @author Abhishek
@@ -23,6 +25,28 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET, params = {"userId", "password"})
+	public ModelAndView firstTestMeth(@RequestParam(value = "userId") String uid, @RequestParam(value = "password") String pass) {
+
+		ModelAndView mv = null;
+
+		String userId =   uid;
+		String password = pass;
+
+		userService.testMeth();
+		
+		if((userId.equals("admin")) && (password.equals("password"))){
+			mv = new ModelAndView("success");
+			mv.addObject("userId",userId);
+		}else{
+			mv = new ModelAndView("error");
+			mv.addObject("msg","Incorrect userId or password");
+		}
+
+		return mv;
+	}
+
+/*	
 	@RequestMapping(value = "/followuser", method = RequestMethod.POST)
 	public boolean followUser(@ModelAttribute("user") Integer uid1, @ModelAttribute("user1") Integer uid2) {
 		return userService.followUser(uid1, uid2);
@@ -44,36 +68,5 @@ public class UserController {
 	}
 	
 	
-/*	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user") User user,
-			BindingResult result) {
-
-		userService.addUser(user);
-		return "redirect:/users";
-
-	}
-
-	@RequestMapping(value = "/removeuser", method = RequestMethod.POST)
-	public String removeUser(@ModelAttribute("user") Integer userid,
-			BindingResult result) {
-
-		userService.removeUser(userid);
-		return "redirect:/users";
-
-	}
-*//*	public abstract List<User> getUsersList();
-
-	public abstract void addUser(User user);
-
-	public abstract void removeUser(Integer id);
-
-	public abstract boolean followUser(Integer id);
-
-	public abstract boolean unfollowUser(Integer id);
-
-	public abstract List<User> getFollowersList();
-
-	public abstract List<User> getFollowingList();
 */
-
 }

@@ -13,11 +13,11 @@ import com.tweet.domain.User;
  */
 public interface FollowDao {
 	
-	public abstract void addFollower(Follow f);
+	public abstract boolean addFollower(Follow f);
 
-	public abstract void deleteFollower(Follow f);
+	public abstract boolean deleteFollower(Follow f);
 
-	public abstract void updateFollower(Follow f);
+	public abstract boolean updateFollower(Follow f);
 
 	
 	public abstract List<User> getFollowers(Integer userId);

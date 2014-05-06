@@ -14,7 +14,8 @@ import com.tweet.domain.User;
  */
 public interface UserService {
 
-
+	public abstract void testMeth();
+/*
 	public abstract void addTweet(Tweet tweet);
 
 	public abstract void deleteTweet(Integer id);
@@ -35,5 +36,5 @@ public interface UserService {
 
 	public abstract List<User> getFollowingList(Integer uid1);
 	
-
+*/
 }

@@ -3,18 +3,16 @@
  */
 package com.tweet.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.tweet.dao.FollowDao;
 import com.tweet.dao.TweetDao;
 import com.tweet.dao.UserDao;
 import com.tweet.domain.Follow;
-import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
+
+
 
 /**
  * @author Abhishek
@@ -22,7 +20,9 @@ import com.tweet.domain.User;
  */
 @Service
 public class UserServiceImpl implements UserService {
+	
 
+	
 	@Autowired
 	UserDao userDao;
 
@@ -32,6 +32,15 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	FollowDao followDao;
 
+	public void testMeth(){
+		System.out.println("In service layer ! !!!!!!!!!!!!");
+		Follow f = new Follow(4, 5);
+		followDao.deleteFollower(f);
+		
+	}
+	
+	
+/*
 	@Transactional
 	@Override
 	public List<User> getFollowersList(Integer userId1) {
@@ -109,4 +118,6 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 	}
+
+*/	
 }

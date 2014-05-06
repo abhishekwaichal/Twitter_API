@@ -8,23 +8,22 @@ package com.tweet.domain;
  * @author Abhishek
  *
  */
-
 public class User {
 
 	private Integer userid;
 	
 	private String username;
 	
-	private String name;
-
 	private String email;
 
-	public User(Integer userid, String username, String name, String email) {
+	private String name;
+
+	public User(Integer userid, String username, String email, String name ) {
 		super();
 		this.userid = userid;
 		this.username = username;
-		this.name = name;
 		this.email = email;
+		this.name = name;
 	}
 
 	public Integer getUserid() {

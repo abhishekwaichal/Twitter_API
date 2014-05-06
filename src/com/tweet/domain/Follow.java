@@ -3,43 +3,44 @@
  */
 package com.tweet.domain;
 
+
 /**
  * @author Abhishek
  *
  */
 public class Follow {
 
-	User following;
+	Integer follower_id;
 
-	User follower;
+	Integer following_id;
 
-	public Follow(User following, User follower) {
+
+	public Follow(Integer follower_idIN, Integer following_idIN) {
 		super();
-		this.following = following;
-		this.follower = follower;
+			this.follower_id = follower_idIN;
+			this.following_id = following_idIN;
+}
+
+	public Integer getFollowing() {
+		return following_id;
 	}
 
-	public User getFollowing() {
-		return following;
+	public void setFollowing(Integer following_idIN) {
+		this.following_id = following_idIN;
 	}
 
-	public void setFollowing(User following) {
-		this.following = following;
+	public Integer getFollower() {
+		return follower_id;
 	}
 
-	public User getFollower() {
-		return follower;
-	}
-
-	public void setFollower(User follower) {
-		this.follower = follower;
+	public void setFollower(Integer follower_idIN) {
+		this.follower_id = follower_idIN;
 	}
 
 	@Override
 	public String toString() {
-		return "Follow [following=" + following + ", follower=" + follower
+		return "Follow [following=" + following_id + ", follower=" + follower_id
 				+ "]";
 	}
-	
 	
 }

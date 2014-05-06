@@ -13,48 +13,51 @@ package com.tweet.domain;
 
 public class Tweet {
 	
-	private int tweet_id;
+	private Integer tweet_id;
 	
-	private String text;
+	private String tweet_text;
 	
-	private User poster;
+	private Integer poster_id;
 
-	
-	public int getTweet_id() {
+	public Tweet(Integer tweet_id, String tweet_text, Integer poster_id) {
+		super();
+		this.tweet_id = tweet_id;
+		this.tweet_text = tweet_text;
+		this.poster_id = poster_id;
+	}
+
+	public Integer getTweet_id() {
 		return tweet_id;
 	}
 
-	public void setTweet_id(int tweet_id) {
+	public void setTweet_id(Integer tweet_id) {
 		this.tweet_id = tweet_id;
 	}
 
-	public Tweet(String text, User poster, String dateTime) {
-		super();
-		this.text = text;
-		this.poster = poster;
+	public String getTweet_text() {
+		return tweet_text;
 	}
 
-
-	public void setPoster(User poster) {
-		this.poster = poster;
+	public void setTweet_text(String tweet_text) {
+		this.tweet_text = tweet_text;
 	}
 
-	public User getPoster() {
-		return poster;
+	public Integer getPoster_id() {
+		return poster_id;
 	}
 
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
+	public void setPoster_id(Integer poster_id) {
+		this.poster_id = poster_id;
 	}
 
 	@Override
 	public String toString() {
-		return "Tweet [text=" + text + ", poster=" + poster + "]";
+		return "Tweet [tweet_id=" + tweet_id + ", tweet_text=" + tweet_text
+				+ ", poster_id=" + poster_id + "]";
 	}
+
+
+	
 
 
 }
