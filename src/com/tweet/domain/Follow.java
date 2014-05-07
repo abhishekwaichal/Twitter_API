@@ -3,16 +3,20 @@
  */
 package com.tweet.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * @author Abhishek
  *
  */
+@XmlRootElement(name = "follow")
 public class Follow {
 
-	Integer follower_id;
+	private Integer follower_id;
 
-	Integer following_id;
+	private Integer following_id;
 
 
 	public Follow(Integer follower_idIN, Integer following_idIN) {
@@ -25,6 +29,8 @@ public class Follow {
 		return following_id;
 	}
 
+
+	@XmlElement
 	public void setFollowing(Integer following_idIN) {
 		this.following_id = following_idIN;
 	}
@@ -33,6 +39,8 @@ public class Follow {
 		return follower_id;
 	}
 
+
+	@XmlElement
 	public void setFollower(Integer follower_idIN) {
 		this.follower_id = follower_idIN;
 	}

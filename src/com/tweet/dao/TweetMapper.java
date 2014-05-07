@@ -18,7 +18,9 @@ public class TweetMapper implements RowMapper<Tweet>{
 
 	@Override
 	public Tweet mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-		return new Tweet(resultSet.getInt("tweet_id"),resultSet.getString("tweet_text"),resultSet.getInt("poster_id"));
+		return new Tweet(resultSet.getInt("tweet_id"),
+				resultSet.getString("tweet_text"),
+				resultSet.getInt("poster_id"));
 	}
 
 	

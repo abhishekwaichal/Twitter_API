@@ -69,7 +69,7 @@ public class FollowDaoImpl implements FollowDao {
 
 		String sql = "INSERT INTO follow (follower_id,following_id) VALUES (:follower_id, :following_id)";
 		
-		Map namedParameters = new HashMap<Integer, Integer>();
+		Map<String, Integer> namedParameters = new HashMap<String, Integer>();
 
 		namedParameters.put("follower_id", f.getFollower());
 		namedParameters.put("following_id", f.getFollowing());
@@ -89,7 +89,7 @@ public class FollowDaoImpl implements FollowDao {
 	
 		String sql = "DELETE FROM follow WHERE following_id = :following_id and follower_id = :follower_id";
 		
-		Map namedParameters = new HashMap<Integer, Integer>();
+		Map<String, Integer> namedParameters = new HashMap<String, Integer>();
 
 		namedParameters.put("follower_id", f.getFollower());
 		namedParameters.put("following_id", f.getFollowing());

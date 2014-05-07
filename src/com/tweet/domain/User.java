@@ -3,11 +3,15 @@
  */
 package com.tweet.domain;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * @author Abhishek
  *
  */
+@XmlRootElement(name = "users")
 public class User {
 
 	private Integer userid;
@@ -30,6 +34,7 @@ public class User {
 		return userid;
 	}
 
+	@XmlElement
 	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
@@ -38,6 +43,8 @@ public class User {
 		return username;
 	}
 
+
+	@XmlElement
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -46,6 +53,8 @@ public class User {
 		return name;
 	}
 
+
+	@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -54,6 +63,8 @@ public class User {
 		return email;
 	}
 
+
+	@XmlElement
 	public void setEmail(String email) {
 		this.email = email;
 	}
