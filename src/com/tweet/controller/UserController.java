@@ -5,10 +5,13 @@ package com.tweet.controller;
 
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,7 +42,7 @@ public class UserController {
 		
 		if((userId.equals("admin")) && (password.equals("password"))){
 			mv = new ModelAndView("Menu");
-			mv.addObject("userId",userId);
+			mv.addObject("userID",2);
 		}else{
 			mv = new ModelAndView("error");
 			mv.addObject("msg","Incorrect userId or password");
@@ -48,6 +51,12 @@ public class UserController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/listpeople", method = RequestMethod.GET)
+	@ResponseBody
+	public String listpeople(Locale locale, Model model) {
+		System.out.println("LOLA");
+		return "menu";
+	}
 	
 	@RequestMapping(value = "/followuser", params = {"userId1","userId2"})
 	@ResponseBody
@@ -85,7 +94,4 @@ public class UserController {
 		return userService.readSpeicificTweets(text, uid1);
 	}
 	
-	
-	
-
 }
