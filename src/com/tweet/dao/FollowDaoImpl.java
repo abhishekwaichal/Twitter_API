@@ -6,13 +6,16 @@ package com.tweet.dao;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+
 import com.tweet.domain.Follow;
 import com.tweet.domain.User;
 
@@ -52,7 +55,7 @@ public class FollowDaoImpl implements FollowDao {
 	@Override
 	public List<User> getFollowing(Integer userId) {
 
-		String sql = "select uid, uname, email, name from users, follow where uid = following_idand  follower_id = :uid";
+		String sql = "select uid, uname, email, name from users, follow where uid = following_id and follower_id = :uid";
 
 		SqlParameterSource namedParameters = new MapSqlParameterSource("uid",userId);
 
@@ -60,6 +63,8 @@ public class FollowDaoImpl implements FollowDao {
 
 		List<User> u = namedParameterJdbcTemplate.query(sql, namedParameters, u1);
 
+		
+		
 		return u;
 	}
 
@@ -102,6 +107,21 @@ public class FollowDaoImpl implements FollowDao {
 		
 }
 
+
+
+	@Override
+	public List<User> getListofPeople(Integer uId) {
+
+		String sql = "select * from users s where s.uid NOT in (select uid from users, follow where uid = follower_id and following_id = :uid )";
+
+		SqlParameterSource namedParameters = new MapSqlParameterSource("uid",uId);
+
+		RowMapper<User> u1 = new UserMapper();
+
+		List<User> u = namedParameterJdbcTemplate.query(sql, namedParameters, u1);
+
+		return u;
+	}
 	
 
 	@Override

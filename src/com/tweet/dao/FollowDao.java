@@ -4,6 +4,7 @@
 package com.tweet.dao;
 
 import java.util.List;
+
 import com.tweet.domain.Follow;
 import com.tweet.domain.User;
 
@@ -24,5 +25,5 @@ public interface FollowDao {
 
 	public abstract List<User> getFollowing(Integer userId);
 
-	
+	public abstract List<User> getListofPeople(Integer uid);
 }

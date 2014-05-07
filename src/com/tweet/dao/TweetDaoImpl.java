@@ -32,6 +32,7 @@ public class TweetDaoImpl implements TweetDao {
 	    this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 
+	
 	@Override
 	public List<Tweet> getTweets(Integer userId) {
 
@@ -42,11 +43,16 @@ public class TweetDaoImpl implements TweetDao {
 		RowMapper<Tweet> t1 = new TweetMapper();
 
 		List<Tweet> t = namedParameterJdbcTemplate.query(sql, namedParameters, t1);
+
 		
-		for(Tweet t2 : t){
+		
+/*		for(Tweet t2 : t){
 			System.out.println(""+t2);
 		}
-
+*/
+		
+		
+		
 		return t;
 
 	}

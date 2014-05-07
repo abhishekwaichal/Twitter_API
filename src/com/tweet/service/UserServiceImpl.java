@@ -41,6 +41,13 @@ public class UserServiceImpl implements UserService {
 		tweetDao.getSpecificTweets(str, 2);
 	}
 	
+	@Override
+	public User getUser(Integer userId) {
+
+		return userDao.getUser(userId);
+		
+	}
+	
 	
 
 	@Override
@@ -79,6 +86,12 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
+	public List<User> getListofPeople(Integer uid) {
+		return followDao.getListofPeople(uid);
+		}
+
+	
+	@Override
 	public void addTweet(Tweet tweet) {
 		// TODO Auto-generated method stub
 		
@@ -95,5 +108,8 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 	
 }

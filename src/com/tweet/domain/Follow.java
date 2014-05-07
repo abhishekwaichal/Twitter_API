@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Abhishek
  *
  */
-@XmlRootElement(name = "follow")
 public class Follow {
 
 	private Integer follower_id;
@@ -30,7 +29,6 @@ public class Follow {
 	}
 
 
-	@XmlElement
 	public void setFollowing(Integer following_idIN) {
 		this.following_id = following_idIN;
 	}
@@ -40,7 +38,6 @@ public class Follow {
 	}
 
 
-	@XmlElement
 	public void setFollower(Integer follower_idIN) {
 		this.follower_id = follower_idIN;
 	}

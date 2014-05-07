@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>TE|Twitter: LOGIN</title>
 </head>
 <body>
 
 <form action="login">
-<br />Enter UserId:<input type="text" name="userId" />
-<br />Enter Password:<input type="text" name="password" />
-<br /><input type="submit" value="submit" />
+<br />UserId: <p><input type="text" name="userId" /></p>
+<br />Password: <p><input type="text" name="password" /></p>
+<br /><p><input type="submit" value="SUBMIT" /></p>
 </form>
 
 </body>
