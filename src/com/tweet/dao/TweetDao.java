@@ -14,17 +14,17 @@ import com.tweet.domain.Tweet;
 public interface TweetDao {
 
 
-	public abstract void addTweet(Tweet tweet);
+	public void addTweet(Tweet tweet);
 
-	public abstract void deleteTweet(Integer id);
+	public void deleteTweet(Integer id);
 
-	public abstract void updateTweet(Integer id);
+	public void updateTweet(Integer id);
 
 
 	
-	public abstract List<Tweet> getTweets(Integer userId);
+	public List<Tweet> getTweets(Integer userId);
 
-	public abstract List<Tweet> getSpecificTweets(String txt, Integer userId);
+	public List<Tweet> getSpecificTweets(String txt, Integer userId);
 
 	
 }

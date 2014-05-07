@@ -11,19 +11,22 @@ import com.tweet.domain.User;
  */
 public interface UserDao {
 
-	public abstract boolean addUser(User user);
+	public boolean addUser(User user);
 
-	public abstract boolean deleteUser(Integer userId);
+	public boolean deleteUser(Integer userId);
 
-	public abstract boolean updateUser(Integer userId);
+	public boolean updateUser(Integer userId);
 
 	
-	public abstract User getUser(Integer userId);
+	public User getUser(Integer userId);
 	
-/*    public abstract List<User> getFollowers(Integer userId);
+	public User getUser(String userName);
+	
+	
+/*    public List<User> getFollowers(Integer userId);
 
-    public abstract List<User> getFollowed(Integer userId);
+    public List<User> getFollowed(Integer userId);
     
-    public abstract void updateFollowers(List<User> followers);
+    public void updateFollowers(List<User> followers);
 */
 }

@@ -13,15 +13,15 @@ import com.tweet.domain.Tweet;
  */
 public interface TweetService {
 	
-	public abstract void addTweet(Tweet tweet);
+	public void addTweet(Tweet tweet);
 
-	public abstract void deleteTweet(Integer id);
+	public void deleteTweet(Integer id);
 
-	public abstract void updateTweet(Integer id);
+	public void updateTweet(Integer id);
 
 
-	public abstract List<Tweet> getTweets(Integer uid);
+	public List<Tweet> getTweets(Integer uid);
 
-	public abstract List<Tweet> getSpecificTweets(Integer uid, String txt);
+	public List<Tweet> getSpecificTweets(Integer uid, String txt);
 
 }

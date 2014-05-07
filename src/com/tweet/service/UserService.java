@@ -16,29 +16,31 @@ import com.tweet.domain.User;
 public interface UserService {
 
 	
-	public abstract User getUser(Integer userId);
-	
-	public abstract void testMeth();
+	public User getUser(String userName);
 
-	public abstract void addTweet(Tweet tweet);
+	public User getUser(Integer userId);
+	
+	public void testMeth();
 
-	public abstract void deleteTweet(Integer id);
+	public void addTweet(Tweet tweet);
 
-	public abstract void updateTweet(Tweet tweet);
+	public void deleteTweet(Integer id);
+
+	public void updateTweet(Tweet tweet);
 	
 	
 
-	public abstract List<Tweet> readTweets(Integer userId);
+	public List<Tweet> readTweets(Integer userId);
 	
-	public abstract List<Tweet> readSpeicificTweets(String text, Integer userId);
+	public List<Tweet> readSpeicificTweets(String text, Integer userId);
 	
-	public abstract boolean followUser(Integer uid1, Integer uid2 );
+	public boolean followUser(Integer uid1, Integer uid2 );
 
-	public abstract boolean unfollowUser(Integer uid1, Integer uid2 );
+	public boolean unfollowUser(Integer uid1, Integer uid2 );
 	
-	public abstract List<User> getFollowersList(Integer uid1);
+	public List<User> getFollowersList(Integer uid1);
 
-	public abstract List<User> getFollowingList(Integer uid1);
+	public List<User> getFollowingList(Integer uid1);
 	
-	public abstract List<User> getListofPeople(Integer uid);
+	public List<User> getListofPeople(Integer uid);
 }

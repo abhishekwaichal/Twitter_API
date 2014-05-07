@@ -6,11 +6,6 @@ package com.tweet.controller;
 
 import java.util.List;
 import java.util.Locale;
-
-import javax.websocket.Session;
-
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,20 +31,28 @@ public class UserController {
 
 	Integer userID1;
 	
-	@RequestMapping(value = "/login",  params = {"userId", "password"})
-	public ModelAndView firstTestMeth(@RequestParam(value = "userId") String uid, @RequestParam(value = "password") String pass) {
+	@RequestMapping(value = "/login",  params = {"userId"})
+	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName) {
 
-		
+		User u = userService.getUser(uName);
+
+		if(u == null){
+			System.out.println("User does not exist !");
+			return new ModelAndView("index");
+		}
 		
 		ModelAndView mv = null;
 
-		String userId =   uid;
-		String password = pass;
-
-		userService.testMeth();
+		mv = new ModelAndView("Menu");
 		
+		mv.addObject("userID",u.getUserid());
+		mv.addObject("email",u.getEmail());
+		mv.addObject("name",u.getName());
+		mv.addObject("userName",u.getUsername());
+		
+/*
+ 		userService.testMeth();
 		userID1 = 1;
-		
 		if((userId.equals("admin")) && (password.equals("password"))){
 			mv = new ModelAndView("Menu");
 			mv.addObject("userID",2);
@@ -57,16 +60,24 @@ public class UserController {
 			mv = new ModelAndView("error");
 			mv.addObject("msg","Incorrect userId or password");
 		}
-
+*/
 		return mv;
 	}
 
-	@RequestMapping(value = "/listpeople", params = {"userId"})//method = RequestMethod.GET)
-	@ResponseBody
-	public List<User>listpeople(@RequestParam(value = "userId") Integer uid) {		
-		return userService.getListofPeople(uid);
-//		System.out.println("LOLA");
-//		return "success";
+	@RequestMapping(value = "/listpeople", params = {"userId"})
+	public ModelAndView listpeople(@RequestParam(value = "userId") Integer uid) {		
+
+		ModelAndView mv = null;
+
+		mv = new ModelAndView("List");
+
+		List<User> uList = userService.getListofPeople(uid);
+		for(User r:uList)
+				System.out.println(""+r.toString());
+
+		mv.addObject("uList",uList);
+
+		return mv;
 	}
 	
 	@RequestMapping(value = "/followuser", params = {"userId1","userId2"})

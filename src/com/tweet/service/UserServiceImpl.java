@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User getUser(Integer userId) {
+	public User getUser(String userName) {
 
-		return userDao.getUser(userId);
+		return userDao.getUser(userName);
 		
 	}
 	
@@ -107,6 +107,12 @@ public class UserServiceImpl implements UserService {
 	public void updateTweet(Tweet tweet) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public User getUser(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

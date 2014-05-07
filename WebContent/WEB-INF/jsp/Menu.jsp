@@ -10,29 +10,34 @@
 
 
 <br><br>
-<div align="center"><h1>Welcome @username</h1>
-<br><br><h3>@userid @name @email </h3>
+<div align="center"><h1>Welcome @${userName} </h1>
+<br><br><h3>${name}<br>${email} </h3>
 <br><br>
 
-<p>	<form action="readTweets?userId=${userID}">
-<%-- <input type="text" name="userId" value="${userId}"/> --%>
+<%-- <p>	<form action="readTweets?userId=${userID}">
+<input type="text" name="userId" value="${userId}"/>
 <input type="submit" value="Get Tweets" />
 </form> 
+ --%>
 
-
-<%-- <a href="readTweets/?userId=${userID}">GetTweets</a> --%>
+<a href="readTweets?userId=${userID}">GetTweets</a> &nbsp;&nbsp;
 <!-- <p>	<form action="readSpecificTweets"><input type="submit" value=" Get specific Tweets" /></form>  -->
-<a href="readSpecificTweets/?userId=${userID}">Get specific Tweets</a>
-
+<%-- <a href="readSpecificTweets/?userId=${userID}">Get specific Tweets</a> --%>
 <!-- <p>	<form action="listfollowers"><input type="submit" value=" Get followers" /></form> -->
-<a href="listfollowers/?userId=${userID}">Get followers</a>
-
+<a href="listfollowers?userId=${userID}">Get followers</a>&nbsp;&nbsp;
 <!-- <p>	<form action="listfollowing"><input type="submit" value=" Get your followed" /></form>  -->
-<a href="listfollowing/?userId=${userID}">Get your followed</a>
-
+<a href="listfollowing?userId=${userID}">Get your followed</a>&nbsp;&nbsp;
 <!-- <p>	<form action="listpeople"><input type="submit" value=" View People to follow" /></form> -->
-<a href="listpeople/?userId=${userID}">View People to follow</a>
-		
+<a href="listpeople?userId=${userID}">View People to follow</a>&nbsp;&nbsp;
+
+<br>
+<p>
+	<form action="readSpecificTweets">
+	<input type="text"  name="text" >
+	<input type="hidden"  name="userId" value = "${userID}" >	
+	<input type="submit" value=" Get specific Tweets" >
+	</form>
+</p>		
 </div>	
 </body>
 </html>
