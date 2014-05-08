@@ -14,7 +14,7 @@ import com.tweet.dao.UserDao;
 import com.tweet.domain.Follow;
 import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
-
+import com.tweet.domain.UserInfo;
 
 
 /**
@@ -53,6 +53,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUser(userId);
 	}
 	
+	@Override
+	public UserInfo getUserInfo(String uName) {
+		return userDao.getUserInfo(uName);
+	}
+
+
 
 	@Override
 	public List<User> getFollowersList(Integer userId1) {
@@ -112,9 +118,6 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 
 	
 }

@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
 import com.tweet.service.UserService;
-
+import com.tweet.domain.UserInfo;
 /**
  * @author Abhishek
  * 
@@ -39,38 +39,23 @@ public class UserController {
 			HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
-
 		session.setAttribute("UserName", uName);
+
 		User u = userService.getUser(uName);
+		UserInfo ui = userService.getUserInfo(uName);		
 		
-		
-		ModelAndView m = new ModelAndView("index");
-		m.addObject("errMsg", "User does not exist. Please enter a valid user ID.");
-		if(u == null){
-			System.out.println("User does not exist !");
+		if(! ui.getPass().equals(pass) || ! ui.getUsername().equals(uName)){
+			System.out.println("Invalid U/P !");
 			return null;
 		}
 		
-		ModelAndView mv = null;
-
-		mv = new ModelAndView("Menu");
+		ModelAndView mv = new ModelAndView("Menu");
 
 		mv.addObject("userID",u.getUserid());
 		mv.addObject("email",u.getEmail());
 		mv.addObject("name",u.getName());
 		mv.addObject("userName",u.getUsername());
 		
-/*
- 		userService.testMeth();
-		userID1 = 1;
-		if((userId.equals("admin")) && (password.equals("password"))){
-			mv = new ModelAndView("Menu");
-			mv.addObject("userID",2);
-		}else{
-			mv = new ModelAndView("error");
-			mv.addObject("msg","Incorrect userId or password");
-		}
-*/
 		return mv;
 	}
 

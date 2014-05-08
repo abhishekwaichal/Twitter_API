@@ -28,8 +28,8 @@
 	<p>${errMsg}</p>
 	<div align="center">
 	<form name="LoginForm" action="login" onsubmit="return ValidateLoginForm();">
-		<br/>Username:<p><input type="text" name="userId" placeholder="User name"/></p>
-		<br/>Password:<p><input type="text" name="passowrd" placeholder="Password"/></p>
+		<br/><b>Username:<b><p><input type="text" name="userId" placeholder="User name"/></p>
+		<br/><b>Password:<b><p><input  type="password"  name="password" placeholder="Password"/></p>
 		<br/><p><input type="submit" name= "submit" value="Log In" /></p>
 	</form>
 	</div>

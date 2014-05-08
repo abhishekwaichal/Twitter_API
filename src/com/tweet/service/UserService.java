@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
-
+import com.tweet.domain.UserInfo;
 
 /**
  * @author Abhishek
@@ -17,7 +17,9 @@ public interface UserService {
 
 	
 	public User getUser(String userName);
-
+	
+	public UserInfo getUserInfo(String uName);
+	
 	public User getUser(Integer userId);
 	
 	public void testMeth();

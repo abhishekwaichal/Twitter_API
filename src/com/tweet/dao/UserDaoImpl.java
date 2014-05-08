@@ -15,8 +15,9 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.tweet.domain.User;
+import com.tweet.util.UserInfoMapper;
 import com.tweet.util.UserMapper;
-
+import com.tweet.domain.UserInfo;
 /**
  * @author Abhishek
  *
@@ -64,6 +65,26 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
+
+	@Override
+	public UserInfo getUserInfo(String uName) {
+
+		String sql = "select * from master_login where user_id = :uname";
+
+		SqlParameterSource namedParameters = new MapSqlParameterSource("uname",uName);
+
+		RowMapper<UserInfo> userInf = new UserInfoMapper();
+		UserInfo u ;
+		try {
+			u = namedParameterJdbcTemplate.queryForObject(sql, namedParameters,  userInf);
+		} catch (IncorrectResultSizeDataAccessException e) {
+			return null;
+		}
+		catch (DataAccessException e) {
+			return null;
+		}
+		return u;	
+			}
 	
 	@Override
 	public boolean addUser(User user) {
@@ -82,5 +103,6 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return false;		
 	}
+
 
 }
