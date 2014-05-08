@@ -12,8 +12,8 @@
 	<c:forEach var="ob" items="${uList}">
 		<tr>
 			<td><c:out value="${ob.username}" /></td>
-			<td><c:out value="${ob.name}" /></td>
-			<td><c:out value="${ob.email}" /></td>
+			<td><c:out value="|${ob.name}" /></td>
+			<td><c:out value="|${ob.email}" /></td>
 			<td><input type="submit" value="Follow" /></td>			
 		</tr>
 	</c:forEach>
