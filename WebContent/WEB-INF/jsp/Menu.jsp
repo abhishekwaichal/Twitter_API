@@ -44,7 +44,8 @@
 <!-- <p>	<form action="listfollowing"><input type="submit" value=" Get your followed" /></form>  -->
 <a href="listfollowing?userId=${userID}">Following</a>&nbsp;&nbsp;
 <!-- <p>	<form action="listpeople"><input type="submit" value=" View People to follow" /></form> -->
-<a href="listpeople?userId=${userID}">People to follow</a>&nbsp;&nbsp;
+<a href="listpeople?userId=${userID}">Follow People</a>&nbsp;&nbsp;
+<a href="listpeople1?userId=${userID}">UnFollow People</a>&nbsp;&nbsp;
 
 <br>
 <p>

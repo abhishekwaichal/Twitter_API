@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>TE | People to Follow</title>
+
 </head>
 <body>
 
@@ -13,12 +14,14 @@
 		<c:forEach var="ob" items="${uList}">
 			<form action="followuser">
 			<tr>
+					<c:set var = "uID" value="${ob.userid}"></c:set>
+<%-- 					<td id = "uID" style="display:none;"><c:out value="${ob.userid}" /></td> --%>
 					<td><c:out value="${ob.username}" /></td>
 					<td><c:out value="|${ob.name}" /></td>
 					<td><c:out value="|${ob.email}" /></td>
 					<input type="hidden" name="userId1" value="${UID}"/>
-					<input type="hidden" name="userId2" value="4"/>
-					<td><input type="submit" value="Follow" /></td>
+					<input type="hidden" name="userId2" value="<c:out value="${uID}"/>"/>
+					<td><input type="submit" value="${uf}" /></td>
 				</tr>
 			</form>
 		</c:forEach>

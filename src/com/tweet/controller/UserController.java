@@ -77,22 +77,41 @@ public class UserController {
 		for(User r:uList)
 				System.out.println(""+r.toString());
 
+		String u = new String("Follow");
 		mv.addObject("UID",uid);
+		mv.addObject("uf",u);
 		mv.addObject("uList",uList);
 
 		return mv;
 	}
-	
+
+	@RequestMapping(value = "/listpeople1", params = {"userId"})
+	public ModelAndView listfollowing(@RequestParam(value = "userId") Integer uid) {		
+
+		ModelAndView mv = null;
+
+		mv = new ModelAndView("List");
+
+		List<User> uList = userService.getFollowingList(uid);
+		for(User r:uList)
+				System.out.println(""+r.toString());
+
+		String u = new String("Unfollow");
+		mv.addObject("UID",uid);
+		mv.addObject("uf",u);
+		mv.addObject("uList",uList);
+
+		return mv;
+	}
+
 	@RequestMapping(value = "/followuser", params = {"userId1","userId2"})
-	@ResponseBody
-	public boolean followUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
-		return userService.followUser(uid1, uid2);
+	public ModelAndView followUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
+		return new ModelAndView("Menu");
 	}
 	
 	@RequestMapping(value = "/unfollowuser", params = {"userId1","userId2"})
-	@ResponseBody
-	public boolean unfollowUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
-		return userService.unfollowUser(uid1, uid2);
+	public ModelAndView unfollowUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
+		return new ModelAndView("Menu");
 	}
 	
 	@RequestMapping(value = "/listfollowers", params = {"userId"})
