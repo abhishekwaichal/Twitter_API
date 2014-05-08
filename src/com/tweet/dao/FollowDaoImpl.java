@@ -41,7 +41,7 @@ public class FollowDaoImpl implements FollowDao {
 	@Override
 	public List<User> getFollowers(Integer userId) {
 
-		String sql = "select uid, uname, email, name from users, follow where uid = follower_id and following_id = :uid";
+		String sql = "select uid, uname, email, name from users, follow where uid = follower_id and following_id = :uid and uid <> :uid";
 
 		SqlParameterSource namedParameters = new MapSqlParameterSource("uid",userId);
 
@@ -55,7 +55,7 @@ public class FollowDaoImpl implements FollowDao {
 	@Override
 	public List<User> getFollowing(Integer userId) {
 
-		String sql = "select uid, uname, email, name from users, follow where uid = following_id and follower_id = :uid";
+		String sql = "select uid, uname, email, name from users, follow where uid = following_id and follower_id = :uid and uid <> :uid";
 
 		SqlParameterSource namedParameters = new MapSqlParameterSource("uid",userId);
 
@@ -70,8 +70,9 @@ public class FollowDaoImpl implements FollowDao {
 
 
 	@Override
-	public boolean addFollower(Follow f) {
+	public boolean addFollow(Follow f) {
 
+//		System.out.println("In Add"+f.getFollower()+""+f.getFollowing());
 		String sql = "INSERT INTO follow (follower_id,following_id) VALUES (:follower_id, :following_id)";
 		
 		Map<String, Integer> namedParameters = new HashMap<String, Integer>();
@@ -82,16 +83,18 @@ public class FollowDaoImpl implements FollowDao {
 
 		int ret = namedParameterJdbcTemplate.update(sql, namedParameters);
 		
-		if(ret < 1)
-			return false;
+		if(ret < 1){
+			System.out.println("Not inserted !");
+			return false;}
 		return true;
 
 }
 
 
 	@Override
-	public boolean deleteFollower(Follow f) {
-	
+	public boolean deleteFollow(Follow f) {
+
+//		System.out.println("In Del"+f.getFollower()+""+f.getFollowing());		
 		String sql = "DELETE FROM follow WHERE following_id = :following_id and follower_id = :follower_id";
 		
 		Map<String, Integer> namedParameters = new HashMap<String, Integer>();
@@ -101,8 +104,9 @@ public class FollowDaoImpl implements FollowDao {
 
 		int ret = namedParameterJdbcTemplate.update(sql, namedParameters);
 		
-		if(ret < 1)
-			return false;
+		if(ret < 1){
+			System.out.println("Not inserted !");
+			return false;}
 		return true;
 		
 }
@@ -112,7 +116,7 @@ public class FollowDaoImpl implements FollowDao {
 	@Override
 	public List<User> getListofPeople(Integer uId) {
 
-		String sql = "select * from users s where s.uid NOT in (select uid from users, follow where uid = follower_id and following_id = :uid )";
+		String sql = "select * from users s where s.uid NOT in (select uid from users, follow where uid = following_id and follower_id = :uid)";
 
 		SqlParameterSource namedParameters = new MapSqlParameterSource("uid",uId);
 

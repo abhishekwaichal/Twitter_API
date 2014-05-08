@@ -28,7 +28,7 @@
 	<p>${errMsg}</p>
 	<div align="center">
 	<form name="LoginForm" action="login" onsubmit="return ValidateLoginForm();">
-		<br/>UserId:<p><input type="text" name="userId" /></p>
+		<br/>UserId:<p><input type="text" name="userId" placeholder="User name"/></p>
 		<br/><p><input type="submit" name= "submit" value="SUBMIT" /></p>
 	</form>
 	</div>

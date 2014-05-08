@@ -14,9 +14,9 @@ import com.tweet.domain.User;
  */
 public interface FollowDao {
 	
-	public boolean addFollower(Follow f);
+	public boolean addFollow(Follow f);
 
-	public boolean deleteFollower(Follow f);
+	public boolean deleteFollow(Follow f);
 
 	public boolean updateFollower(Follow f);
 

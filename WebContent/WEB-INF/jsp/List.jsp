@@ -12,10 +12,9 @@
 
 	<table>
 		<c:forEach var="ob" items="${uList}">
-			<form action="followuser">
+			<form action="${act}">
 			<tr>
 					<c:set var = "uID" value="${ob.userid}"></c:set>
-<%-- 					<td id = "uID" style="display:none;"><c:out value="${ob.userid}" /></td> --%>
 					<td><c:out value="${ob.username}" /></td>
 					<td><c:out value="|${ob.name}" /></td>
 					<td><c:out value="|${ob.email}" /></td>

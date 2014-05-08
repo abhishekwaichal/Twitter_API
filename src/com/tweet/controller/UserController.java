@@ -6,6 +6,10 @@ package com.tweet.controller;
 
 import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +36,10 @@ public class UserController {
 	Integer userID1;
 	
 	@RequestMapping(value = "/login",  params = {"userId"})
-	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName) {
+	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName, HttpServletRequest request) {
 
+		HttpSession session = request.getSession();
+		session.setAttribute("UserName", uName);
 		User u = userService.getUser(uName);
 
 		ModelAndView m = new ModelAndView("index");
@@ -78,6 +84,8 @@ public class UserController {
 				System.out.println(""+r.toString());
 
 		String u = new String("Follow");
+		String action = new String("followuser");
+		mv.addObject("act",action);
 		mv.addObject("UID",uid);
 		mv.addObject("uf",u);
 		mv.addObject("uList",uList);
@@ -97,6 +105,8 @@ public class UserController {
 				System.out.println(""+r.toString());
 
 		String u = new String("Unfollow");
+		String action = new String("unfollowuser");
+		mv.addObject("act",action);
 		mv.addObject("UID",uid);
 		mv.addObject("uf",u);
 		mv.addObject("uList",uList);
@@ -106,12 +116,36 @@ public class UserController {
 
 	@RequestMapping(value = "/followuser", params = {"userId1","userId2"})
 	public ModelAndView followUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
-		return new ModelAndView("Menu");
+
+		userService.followUser(uid1, uid2);
+
+		User u = userService.getUser(uid1);
+		ModelAndView mv = null;
+		mv = new ModelAndView("Menu");
+		mv.addObject("userID",u.getUserid());
+		mv.addObject("email",u.getEmail());
+		mv.addObject("name",u.getName());
+		mv.addObject("userName",u.getUsername());
+		return mv;
+
 	}
 	
 	@RequestMapping(value = "/unfollowuser", params = {"userId1","userId2"})
 	public ModelAndView unfollowUser(@RequestParam("userId1") Integer uid1, @RequestParam("userId2") Integer uid2) {
-		return new ModelAndView("Menu");
+		userService.unfollowUser(uid1, uid2);
+		User u = userService.getUser(uid1);
+
+		
+		ModelAndView mv = null;
+
+		mv = new ModelAndView("Menu");
+
+		mv.addObject("userID",u.getUserid());
+		mv.addObject("email",u.getEmail());
+		mv.addObject("name",u.getName());
+		mv.addObject("userName",u.getUsername());
+		return mv;
+
 	}
 	
 	@RequestMapping(value = "/listfollowers", params = {"userId"})
@@ -129,14 +163,8 @@ public class UserController {
 	@RequestMapping(value = "/readTweets", params = {"userId"})	
 	public @ResponseBody List<Tweet> readTweets(@RequestParam("userId") Integer uid1) {
 
-//		return userService.getUser(userId);
-		
 		List<Tweet> t = userService.readTweets(uid1);
 		
-/*	for(Tweet t2 : t){
-		System.out.println(""+t2);
-	}
-*/
 		return t;
 	}
 	

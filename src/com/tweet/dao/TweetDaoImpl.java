@@ -50,11 +50,7 @@ public class TweetDaoImpl implements TweetDao {
 			System.out.println(""+t2);
 		}
 */
-		
-		
-		
 		return t;
-
 	}
 
 	
@@ -75,11 +71,10 @@ public class TweetDaoImpl implements TweetDao {
 		List<Tweet> t = namedParameterJdbcTemplate.query(sql, parameters, t1);
 		System.out.println("Sz: "+t.size());
 		
-		for(Tweet t2 : t){
+/*		for(Tweet t2 : t){
 			System.out.println(""+t2);
 		}
-
-		
+*/
 		return t;
 
 	}

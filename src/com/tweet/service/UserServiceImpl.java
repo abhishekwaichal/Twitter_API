@@ -48,6 +48,10 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	@Override
+	public User getUser(Integer userId) {
+		return userDao.getUser(userId);
+	}
 	
 
 	@Override
@@ -63,14 +67,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean followUser(Integer userId1, Integer userId2) {
 		Follow f = new Follow(userId1, userId2);
-		followDao.addFollower(f);
+		followDao.addFollow(f);
 		return true;
 	}
 
 	@Override
 	public boolean unfollowUser(Integer userId1, Integer userId2) {
 		Follow f = new Follow(userId1, userId2);
-		followDao.deleteFollower(f);
+		followDao.deleteFollow(f);
 		return true;
 	}
 
@@ -109,11 +113,6 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	@Override
-	public User getUser(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

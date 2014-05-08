@@ -50,7 +50,7 @@
 <br>
 <p>
 	<form name="MenuForm" action="readSpecificTweets" onsubmit="return ValidateMenuForm();">
-	<input type="text"  name="text" >
+	<input type="text"  name="text" placeholder="SearchTerm" >
 	<input type="hidden"  name="userId" value = "${userID}" >	
 	<input type="submit" value=" Get specific Tweets" >
 	</form>
