@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.tweet.domain.Follow;
 import com.tweet.domain.User;
+import com.tweet.util.UserMapper;
 
 /**
  * @author Abhishek

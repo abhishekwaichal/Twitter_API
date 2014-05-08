@@ -9,6 +9,11 @@
 
 </head>
 <body>
+</br></br></br>
+<div align="center">
+<c:if test="${empty uList}">
+   <p>No users to ${uf} ! <p>
+</c:if>
 
 	<table>
 		<c:forEach var="ob" items="${uList}">
@@ -25,6 +30,6 @@
 			</form>
 		</c:forEach>
 	</table>
-
+</div>
 </body>
 </html>

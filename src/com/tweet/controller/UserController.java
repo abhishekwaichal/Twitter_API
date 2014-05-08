@@ -5,16 +5,14 @@ package com.tweet.controller;
 
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,14 +32,18 @@ public class UserController {
 	UserService userService;
 
 	Integer userID1;
-	
-	@RequestMapping(value = "/login",  params = {"userId"})
-	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName, HttpServletRequest request) {
+
+	@RequestMapping(value = "/login", params = { "userId", "password" })
+	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName,
+			@RequestParam(value = "password") String pass,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
+
 		session.setAttribute("UserName", uName);
 		User u = userService.getUser(uName);
-
+		
+		
 		ModelAndView m = new ModelAndView("index");
 		m.addObject("errMsg", "User does not exist. Please enter a valid user ID.");
 		if(u == null){

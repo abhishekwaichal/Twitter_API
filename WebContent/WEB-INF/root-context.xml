@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+<!-- 	<http auto-config='true'>
+		<intercept-url pattern="/**" access="ROLE_USER" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="leonard" password="nimoy" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+ --><!-- 	
+	<bean id="tokenServices"
+		class="org.springframework.security.oauth2.provider.token.InMemoryOAuth2ProviderTokenServices">
+		<property name="supportRefreshToken" value="true" />
+	</bean>
+
+	<provider client-details-service-ref="clientDetails"
+		token-services-ref="tokenServices">
+		<verification-code user-approval-page="/oauth/confirm_access" />
+	</provider>
+
+	<client-details-service id="clientDetails">
+		<client clientId="foo" authorizedGrantTypes="authorization_code" />
+	</client-details-service>
+
+ -->
+ </beans>
