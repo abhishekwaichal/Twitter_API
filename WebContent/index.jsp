@@ -6,16 +6,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>TE|Twitter: LOGIN</title>
+<script type="text/javascript">
+	function ValidateLoginForm() {
+		var id = document.LoginForm.userId;
+
+		if (id.value == "") {
+			window.alert("Please enter a user ID");
+			id.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+
 </head>
 <br><br>
 <div align="center"><h1>TE TWITTER API</h1></div>
 <br><br>
 
 <body>
+	<p>${errMsg}</p>
 	<div align="center">
-	<form action="login">
+	<form name="LoginForm" action="login" onsubmit="return ValidateLoginForm();">
 		<br/>UserId:<p><input type="text" name="userId" /></p>
-		<br/><p><input type="submit" value="SUBMIT" /></p>
+		<br/><p><input type="submit" name= "submit" value="SUBMIT" /></p>
 	</form>
 	</div>
 </body>

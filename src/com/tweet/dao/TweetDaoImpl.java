@@ -61,11 +61,12 @@ public class TweetDaoImpl implements TweetDao {
 	@Override
 	public List<Tweet> getSpecificTweets(String str, Integer userId) {
 
-		String sql = "select tweet_id,tweet_text, poster_id from (select uid from users, follow where uid = follower_id and following_id = :uid) f , tweets t where f.uid = poster_id and tweet_text like '%:str'";
+		String sql = "select tweet_id,tweet_text, poster_id from (select uid from users, follow where uid = follower_id and following_id = :uid) f , tweets t where f.uid = poster_id and tweet_text like :str";
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("uid", userId);
-		parameters.put("str", str);
+		String text = "%"+str.trim();
+		parameters.put("str", text);
  
 //		SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("uid", userId).addValue("str", str);
 

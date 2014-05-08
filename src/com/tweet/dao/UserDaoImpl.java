@@ -6,6 +6,8 @@ package com.tweet.dao;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -48,8 +50,16 @@ public class UserDaoImpl implements UserDao {
 		SqlParameterSource namedParameters = new MapSqlParameterSource("uname",userName);
 
 		RowMapper<User> user1 = new UserMapper();
-	
-		return namedParameterJdbcTemplate.queryForObject(sql, namedParameters,  user1);	
+		User u ;
+		try {
+			u = namedParameterJdbcTemplate.queryForObject(sql, namedParameters,  user1);
+		} catch (IncorrectResultSizeDataAccessException e) {
+			return null;
+		}
+		catch (DataAccessException e) {
+			return null;
+		}
+		return u;	
 		
 	}
 

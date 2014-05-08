@@ -36,15 +36,17 @@ public class UserController {
 
 		User u = userService.getUser(uName);
 
+		ModelAndView m = new ModelAndView("index");
+		m.addObject("errMsg", "User does not exist. Please enter a valid user ID.");
 		if(u == null){
 			System.out.println("User does not exist !");
-			return new ModelAndView("index");
+			return null;
 		}
 		
 		ModelAndView mv = null;
 
 		mv = new ModelAndView("Menu");
-		
+
 		mv.addObject("userID",u.getUserid());
 		mv.addObject("email",u.getEmail());
 		mv.addObject("name",u.getName());
@@ -75,6 +77,7 @@ public class UserController {
 		for(User r:uList)
 				System.out.println(""+r.toString());
 
+		mv.addObject("UID",uid);
 		mv.addObject("uList",uList);
 
 		return mv;
