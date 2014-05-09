@@ -21,7 +21,10 @@ import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
 import com.tweet.service.UserService;
 import com.tweet.domain.UserInfo;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 /**
  * @author Abhishek
  * 
@@ -33,12 +36,18 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+<<<<<<< HEAD
 	HttpSession session ;
+=======
+	Integer userID1;
+
+>>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 	@RequestMapping(value = "/login", params = { "userId", "password" })
 	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName,
 			@RequestParam(value = "password") String pass,
 			HttpServletRequest request, HttpServletResponse response) {
 
+<<<<<<< HEAD
 		User u = userService.getUser(uName);
 		UserInfo ui = userService.getUserInfo(uName);
 		
@@ -65,6 +74,26 @@ public class UserController {
 		mv.addObject("name", u.getName());
 		mv.addObject("userName", u.getUsername());
 
+=======
+		HttpSession session = request.getSession();
+		session.setAttribute("UserName", uName);
+
+		User u = userService.getUser(uName);
+		UserInfo ui = userService.getUserInfo(uName);		
+		
+		if(! ui.getPass().equals(pass) || ! ui.getUsername().equals(uName)){
+			System.out.println("Invalid U/P !");
+			return null;
+		}
+		
+		ModelAndView mv = new ModelAndView("Menu");
+
+		mv.addObject("userID",u.getUserid());
+		mv.addObject("email",u.getEmail());
+		mv.addObject("name",u.getName());
+		mv.addObject("userName",u.getUsername());
+		
+>>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 		return mv;
 	}
 

@@ -80,11 +80,17 @@ public class UserDaoImpl implements UserDao {
 		try {
 			u = namedParameterJdbcTemplate.queryForObject(sql, namedParameters,  userInf);
 		} catch (IncorrectResultSizeDataAccessException e) {
+<<<<<<< HEAD
 			System.out.println("NO USER !!!!!!");
 			return null;
 		}
 		catch (DataAccessException e) {
 			System.out.println("NO USER !!!!!!");
+=======
+			return null;
+		}
+		catch (DataAccessException e) {
+>>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 			return null;
 		}
 		return u;	
