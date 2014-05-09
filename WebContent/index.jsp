@@ -9,14 +9,24 @@
 <script type="text/javascript">
 	function ValidateLoginForm() {
 		var id = document.LoginForm.userId;
+		var pass = document.LoginForm.password;
 
 		if (id.value == "") {
-			window.alert("Please enter a user ID");
+			window.alert("Please enter a user ID.");
 			id.focus();
 			return false;
 		}
+
+		if (pass.value == "") {
+			window.alert("Please enter a user password.");
+			id.focus();
+			return false;
+		}
+
 		return true;
 	}
+	
+	
 </script>
 
 </head>
@@ -28,8 +38,9 @@
 	<p>${errMsg}</p>
 	<div align="center">
 	<form name="LoginForm" action="login" onsubmit="return ValidateLoginForm();">
-		<br/>UserId:<p><input type="text" name="userId" placeholder="User name"/></p>
-		<br/><p><input type="submit" name= "submit" value="SUBMIT" /></p>
+		<br/><b>Username:<b><p><input type="text" name="userId" placeholder="User name"/></p>
+		<br/><b>Password:<b><p><input  type="password"  name="password" placeholder="Password"/></p>
+		<br/><p><input type="submit" name= "submit" value="Log In" /></p>
 	</form>
 	</div>
 </body>

@@ -6,6 +6,9 @@ package com.tweet.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;*/
 import org.springframework.stereotype.Service;
 
 import com.tweet.dao.FollowDao;
@@ -14,7 +17,7 @@ import com.tweet.dao.UserDao;
 import com.tweet.domain.Follow;
 import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
-
+import com.tweet.domain.UserInfo;
 
 
 /**
@@ -22,7 +25,7 @@ import com.tweet.domain.User;
  *
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{//, UserDetailsService{
 	
 
 	
@@ -53,6 +56,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUser(userId);
 	}
 	
+	@Override
+	public UserInfo getUserInfo(String uName) {
+		return userDao.getUserInfo(uName);
+	}
+
+
 
 	@Override
 	public List<User> getFollowersList(Integer userId1) {
@@ -113,8 +122,14 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
-
-
+/*	@Override
+	public UserInfo loadUserByUsername(String username)
+			throws UsernameNotFoundException, DataAccessException {
 	
+		return userDao.getUserInfo(username);
+		
+		
+	}
+
+*/	
 }

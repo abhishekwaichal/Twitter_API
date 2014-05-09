@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>TE|Twitter: LOGIN</title>
 </head>
 <body>
-
-<h1> Welcome!! <c:out value="${msg}"></c:out></h1>
 <jsp:include page="/index.jsp"></jsp:include>
+<div align="center">
+<h4><font color="red"><c:out value="${msg}"></c:out></font></h4>
+</div>
 
 </body>
 </html>

@@ -4,6 +4,7 @@
 package com.tweet.dao;
 
 import com.tweet.domain.User;
+import com.tweet.domain.UserInfo;
 
 /**
  * @author Abhishek
@@ -17,6 +18,7 @@ public interface UserDao {
 
 	public boolean updateUser(Integer userId);
 
+	public UserInfo getUserInfo(String uName);
 	
 	public User getUser(Integer userId);
 	

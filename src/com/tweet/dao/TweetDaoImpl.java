@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import com.tweet.domain.Tweet;
+import com.tweet.util.TweetMapper;
 
 /**
  * @author Abhishek
