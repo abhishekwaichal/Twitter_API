@@ -21,9 +21,15 @@ import com.tweet.domain.UserInfo;
 
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * SERVICE Layer
+ * UserService Implementation:
+ * Provides all User related services.   
+ * 
  */
+
 @Service
 public class UserServiceImpl implements UserService{//, UserDetailsService{
 	

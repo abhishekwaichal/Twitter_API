@@ -7,9 +7,15 @@ import com.tweet.domain.User;
 import com.tweet.domain.UserInfo;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * The MODEL
+ * User DAO:
+ * Interacts with the database, and gets records from 'users' and 'master_login'table.  
+ * 
  */
+
 public interface UserDao {
 
 	public boolean addUser(User user);
@@ -24,11 +30,4 @@ public interface UserDao {
 	
 	public User getUser(String userName);
 	
-	
-/*    public List<User> getFollowers(Integer userId);
-
-    public List<User> getFollowed(Integer userId);
-    
-    public void updateFollowers(List<User> followers);
-*/
 }

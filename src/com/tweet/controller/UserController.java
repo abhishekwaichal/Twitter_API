@@ -23,8 +23,14 @@ import com.tweet.service.UserService;
 import com.tweet.domain.UserInfo;
 
 /**
+ * 
  * @author Abhishek
  * 
+ * The CONTROLLER
+ * UserController:
+ * Handles all the requests from the view and delegates the 
+ * requests to DAO layer via SERVICE LAYER.
+ *   
  */
 @Controller
 @SessionAttributes("sessionUser")
@@ -33,7 +39,13 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	HttpSession session ;
+	HttpSession session;
+/*
+ * 
+ * Handles the request from current user to log in to the system from view
+ * 
+*/	
+
 	@RequestMapping(value = "/login", params = { "userId", "password" })
 	public ModelAndView UserEntry(@RequestParam(value = "userId") String uName,
 			@RequestParam(value = "password") String pass,
@@ -41,17 +53,16 @@ public class UserController {
 
 		User u = userService.getUser(uName);
 		UserInfo ui = userService.getUserInfo(uName);
-		
+
 		ModelAndView mv2 = new ModelAndView("error");
-		if(u==null || ui == null){
-			mv2.addObject("msg","User not found");
+		if (u == null || ui == null) {
+			mv2.addObject("msg", "User not found");
 			return mv2;
 		}
-		
 
 		if (!ui.getPass().equals(pass) || !ui.getUsername().equals(uName)) {
 			System.out.println("Invalid U/P !");
-			mv2.addObject("msg","Invalid username and/or password !");
+			mv2.addObject("msg", "Invalid username and/or password !");
 			return mv2;
 		}
 
@@ -68,6 +79,11 @@ public class UserController {
 		return mv;
 	}
 
+	/*
+	 * 
+	 * Handles the request to list of the people that can be followed by current user
+	 *  
+	*/	
 	@RequestMapping(value = "/listpeople", params = { "userId" })
 	public ModelAndView listpeople(@RequestParam(value = "userId") Integer uid) {
 
@@ -89,6 +105,11 @@ public class UserController {
 		return mv;
 	}
 
+	/*
+	 * 
+	 * Handles the request to list of the people that can be unfollowed by current user
+	 *  
+	*/	
 	@RequestMapping(value = "/listpeople1", params = { "userId" })
 	public ModelAndView listfollowing(
 			@RequestParam(value = "userId") Integer uid) {
@@ -111,12 +132,17 @@ public class UserController {
 		return mv;
 	}
 
+	/*
+	 * 
+	 * Handles the request to follow a user by current user
+	 *  
+	*/	
 	@RequestMapping(value = "/followuser", params = { "userId1", "userId2" })
 	public ModelAndView followUser(@RequestParam("userId1") Integer uid1,
 			@RequestParam("userId2") Integer uid2) {
 
 		userService.followUser(uid1, uid2);
-		
+
 		User u = userService.getUser(uid1);
 		ModelAndView mv = null;
 		mv = new ModelAndView("Menu");
@@ -128,6 +154,11 @@ public class UserController {
 
 	}
 
+	/*
+	 * 
+	 * Handles the request to unfollow a user by current user
+	 *  
+	*/	
 	@RequestMapping(value = "/unfollowuser", params = { "userId1", "userId2" })
 	public ModelAndView unfollowUser(@RequestParam("userId1") Integer uid1,
 			@RequestParam("userId2") Integer uid2) {
@@ -146,18 +177,33 @@ public class UserController {
 
 	}
 
+	/*
+	 * 
+	 * Handles the request to followers of current user
+	 *  
+	*/	
 	@RequestMapping(value = "/listfollowers", params = { "userId" })
 	@ResponseBody
 	public List<User> listFollowers(@RequestParam("userId") Integer uid1) {
 		return userService.getFollowersList(uid1);
 	}
 
+	/*
+	 * 
+	 * Handles the request to follow by a user
+	 *  
+	*/	
 	@RequestMapping(value = "/listfollowing", params = { "userId" })
 	@ResponseBody
 	public List<User> listFollowing(@RequestParam("userId") Integer uid1) {
 		return userService.getFollowingList(uid1);
 	}
 
+	/*
+	 * 
+	 * Handles the request to read tweets for current user
+	 *  
+	*/	
 	@RequestMapping(value = "/readTweets", params = { "userId" })
 	public @ResponseBody
 	List<Tweet> readTweets(@RequestParam("userId") Integer uid1) {
@@ -167,6 +213,11 @@ public class UserController {
 		return t;
 	}
 
+	/*
+	 * 
+	 * Handles the request to read specific tweets for current user
+	 *  
+	*/	
 	@RequestMapping(value = "/readSpecificTweets", params = { "userId", "text" })
 	@ResponseBody
 	public List<Tweet> readSpecificTweets(@RequestParam("userId") Integer uid1,

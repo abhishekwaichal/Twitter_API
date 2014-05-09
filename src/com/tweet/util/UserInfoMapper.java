@@ -11,8 +11,12 @@ import org.springframework.jdbc.core.RowMapper;
 import com.tweet.domain.UserInfo;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * UserMaper:
+ * Maps retrieved 'master_login' records to 'UserInfo' java objects.    
+ * 
  */
 	public class UserInfoMapper implements RowMapper<UserInfo> {
 

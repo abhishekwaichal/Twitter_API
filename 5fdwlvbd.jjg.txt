@@ -1,0 +1,38 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   WebContent/WEB-INF/jsp/List.jsp
+#	modified:   WebContent/WEB-INF/jsp/Menu.jsp
+#	modified:   WebContent/WEB-INF/jsp/error.jsp
+#	modified:   WebContent/index.jsp
+#	modified:   src/com/tweet/controller/UserController.java
+#	modified:   src/com/tweet/dao/FollowDao.java
+#	modified:   src/com/tweet/dao/FollowDaoImpl.java
+#	modified:   src/com/tweet/dao/TweetDao.java
+#	modified:   src/com/tweet/dao/TweetDaoImpl.java
+#	modified:   src/com/tweet/dao/UserDao.java
+#	modified:   src/com/tweet/dao/UserDaoImpl.java
+#	modified:   src/com/tweet/domain/Follow.java
+#	modified:   src/com/tweet/domain/Tweet.java
+#	modified:   src/com/tweet/domain/User.java
+#	modified:   src/com/tweet/domain/UserInfo.java
+#	modified:   src/com/tweet/service/TweetService.java
+#	modified:   src/com/tweet/service/TweetServiceImpl.java
+#	modified:   src/com/tweet/service/UserService.java
+#	modified:   src/com/tweet/service/UserServiceImpl.java
+#	modified:   src/com/tweet/util/FollowMapper.java
+#	modified:   src/com/tweet/util/TweetMapper.java
+#	modified:   src/com/tweet/util/UserInfoMapper.java
+#	modified:   src/com/tweet/util/UserMapper.java
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    WebContent/WEB-INF/jsp/success.jsp
+#
+

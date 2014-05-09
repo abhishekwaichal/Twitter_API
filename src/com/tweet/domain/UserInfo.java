@@ -4,16 +4,21 @@
 package com.tweet.domain;
 
 /*
- * import java.util.Collection;
-
+import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 */
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * UserInfo:
+ * Serves to hold 'login_master' values from records retrieved from database table 'login_master'.   
+ * Part of MODEL layer
+ * 
  */
+
 public class UserInfo {//implements UserDetails{
 	
 //	private static final long serialVersionUID = 1L;

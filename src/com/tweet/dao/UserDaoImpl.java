@@ -19,8 +19,12 @@ import com.tweet.util.UserInfoMapper;
 import com.tweet.util.UserMapper;
 import com.tweet.domain.UserInfo;
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * User DAO Implementation:
+ * Interacts with the database, and gets records from 'users' and 'master_login'table.  
+ * 
  */
 @Repository
 public class UserDaoImpl implements UserDao {

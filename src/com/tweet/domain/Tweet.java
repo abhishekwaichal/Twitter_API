@@ -5,8 +5,13 @@ package com.tweet.domain;
 
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * Tweet:
+ * Serves to hold 'tweets' values from records retrieved from database table 'tweets'.   
+ * Part of MODEL  layer
+ * 
  */
 
 public class Tweet {

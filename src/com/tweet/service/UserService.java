@@ -10,8 +10,13 @@ import com.tweet.domain.User;
 import com.tweet.domain.UserInfo;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * SERVICE Layer
+ * UserService:
+ * Provides all user related services.   
+ * 
  */
 public interface UserService {
 
@@ -33,7 +38,6 @@ public interface UserService {
 	public void updateTweet(Tweet tweet);
 	
 	
-
 	public List<Tweet> readTweets(Integer userId);
 	
 	public List<Tweet> readSpeicificTweets(String text, Integer userId);

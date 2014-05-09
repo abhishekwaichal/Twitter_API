@@ -5,9 +5,15 @@ package com.tweet.domain;
 
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * User:
+ * Serves to hold 'users' values from records retrieved from database table 'users'.   
+ * Part of MODEL  layer
+ * 
  */
+
 public class User {
 
 	private Integer userid;

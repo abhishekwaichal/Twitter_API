@@ -21,10 +21,13 @@ import com.tweet.domain.User;
 import com.tweet.util.UserMapper;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * Follow DAO Implementation:
+ * Interacts with the database, and gets records from 'follow' table.  
+ * 
  */
-
 @Repository
 public class FollowDaoImpl implements FollowDao {
 

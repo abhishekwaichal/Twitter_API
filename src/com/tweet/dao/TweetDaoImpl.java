@@ -20,9 +20,14 @@ import com.tweet.domain.Tweet;
 import com.tweet.util.TweetMapper;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * Tweet DAO Implementation:
+ * Interacts with the database, and gets records from 'tweets' table.  
+ * 
  */
+
 @Repository
 public class TweetDaoImpl implements TweetDao {
 
@@ -45,12 +50,6 @@ public class TweetDaoImpl implements TweetDao {
 
 		List<Tweet> t = namedParameterJdbcTemplate.query(sql, namedParameters, t1);
 
-		
-		
-/*		for(Tweet t2 : t){
-			System.out.println(""+t2);
-		}
-*/
 		return t;
 	}
 
@@ -65,17 +64,11 @@ public class TweetDaoImpl implements TweetDao {
 		String text = "%"+str.trim();
 		parameters.put("str", text);
  
-//		SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("uid", userId).addValue("str", str);
-
 		RowMapper<Tweet> t1 = new TweetMapper();
 
 		List<Tweet> t = namedParameterJdbcTemplate.query(sql, parameters, t1);
 		System.out.println("Sz: "+t.size());
 		
-/*		for(Tweet t2 : t){
-			System.out.println(""+t2);
-		}
-*/
 		return t;
 
 	}

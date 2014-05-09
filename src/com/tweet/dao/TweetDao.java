@@ -8,8 +8,13 @@ import java.util.List;
 import com.tweet.domain.Tweet;
 
 /**
+ * 
  * @author Abhishek
  *
+ * The MODEL
+ * Tweet DAO:
+ * Interacts with the database, and gets records from 'tweets' table.  
+ * 
  */
 public interface TweetDao {
 

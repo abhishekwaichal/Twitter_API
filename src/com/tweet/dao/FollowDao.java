@@ -9,8 +9,13 @@ import com.tweet.domain.Follow;
 import com.tweet.domain.User;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * The MODEL
+ * Follow DAO:
+ * Interacts with the database, and gets records from 'follow' table.  
+ * 
  */
 public interface FollowDao {
 	

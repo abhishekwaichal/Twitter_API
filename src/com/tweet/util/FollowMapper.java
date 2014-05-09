@@ -11,9 +11,14 @@ import org.springframework.jdbc.core.RowMapper;
 import com.tweet.domain.Follow;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * FollowMaper:
+ * Maps retrieved 'follow' records to 'Follow' java objects.    
+ * 
  */
+
 public class FollowMapper implements RowMapper<Follow> {
 
 	@Override

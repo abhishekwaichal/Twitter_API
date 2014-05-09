@@ -13,9 +13,15 @@ import com.tweet.dao.TweetDao;
 import com.tweet.domain.Tweet;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * SERVICE Layer
+ * TweetService Implementation:
+ * Provides all tweets related services.   
+ * 
  */
+
 @Service
 public class TweetServiceImpl implements TweetService {
 

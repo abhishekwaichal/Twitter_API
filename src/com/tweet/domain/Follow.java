@@ -4,8 +4,13 @@
 package com.tweet.domain;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * Follow:
+ * Serves to hold 'follow' values from records retrieved from database table 'follow'.   
+ * Part of MODEL  layer
+ * 
  */
 public class Follow {
 

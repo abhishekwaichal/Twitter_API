@@ -11,8 +11,12 @@ import org.springframework.jdbc.core.RowMapper;
 import com.tweet.domain.Tweet;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * TweetMaper:
+ * Maps retrieved 'tweets' records to 'Tweet' java objects.    
+ * 
  */
 public class TweetMapper implements RowMapper<Tweet>{
 

@@ -9,8 +9,12 @@ import org.springframework.jdbc.core.RowMapper;
 import com.tweet.domain.User;
 
 /**
+ * 
  * @author Abhishek
- *
+ * 
+ * UserMaper:
+ * Maps retrieved 'users' records to 'User' java objects.    
+ * 
  */
 
 	public class UserMapper implements RowMapper<User> {
