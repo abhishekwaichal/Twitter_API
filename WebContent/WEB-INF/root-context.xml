@@ -5,9 +5,6 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-<<<<<<< HEAD
- </beans>
-=======
 <!-- 	<http auto-config='true'>
 		<intercept-url pattern="/**" access="ROLE_USER" />
 	</http>
@@ -37,4 +34,3 @@
 
  -->
  </beans>
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8

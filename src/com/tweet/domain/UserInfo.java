@@ -3,38 +3,28 @@
  */
 package com.tweet.domain;
 
-<<<<<<< HEAD
 /*
  * import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 */
-=======
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 
 /**
  * @author Abhishek
  *
  */
-<<<<<<< HEAD
 public class UserInfo {//implements UserDetails{
 	
 //	private static final long serialVersionUID = 1L;
 	
-=======
-public class UserInfo {
 
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 	private String username;
 
 	private String pass;
 
-<<<<<<< HEAD
 	
 	
-=======
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 	public UserInfo(String username, String pass) {
 		super();
 		this.username = username;
@@ -61,7 +51,6 @@ public class UserInfo {
 	public String toString() {
 		return "UserInfo [username=" + username + ", pass=" + pass + "]";
 	}
-<<<<<<< HEAD
 /*
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
@@ -93,6 +82,4 @@ public class UserInfo {
 		return true;
 	}
 */
-=======
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 }

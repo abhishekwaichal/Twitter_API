@@ -122,12 +122,9 @@ public class UserServiceImpl implements UserService{//, UserDetailsService{
 		
 	}
 
-<<<<<<< HEAD
 /*	@Override
 	public UserInfo loadUserByUsername(String username)
 			throws UsernameNotFoundException, DataAccessException {
-=======
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 	
 		return userDao.getUserInfo(username);
 		

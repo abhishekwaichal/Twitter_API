@@ -12,10 +12,6 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 54121b55e375f1324838544e4198ccc2f19f35a8
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
