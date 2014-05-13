@@ -3,11 +3,11 @@
  */
 package com.tweet.domain;
 
-/*
+
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-*/
+
 
 /**
  * 
@@ -19,9 +19,9 @@ import org.springframework.security.core.userdetails.UserDetails;
  * 
  */
 
-public class UserInfo {//implements UserDetails{
+public class UserInfo implements UserDetails{
 	
-//	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 
 	private String username;
@@ -56,7 +56,9 @@ public class UserInfo {//implements UserDetails{
 	public String toString() {
 		return "UserInfo [username=" + username + ", pass=" + pass + "]";
 	}
-/*
+
+
+	
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
 		return null;
@@ -86,5 +88,7 @@ public class UserInfo {//implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-*/
+
+	
+	
 }

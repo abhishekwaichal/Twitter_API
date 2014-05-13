@@ -29,26 +29,58 @@ Menu Screen.
 
 </head>
 <body>
-</br></br>
+<br>
 <div align="Right"> 
 <a href="/Twitter_API/">LogOut</a> 
 
 </div>
 
-<br><br>
+<br>
 <div align="center"><h1>Welcome @${userName} </h1>
 <br><br><h3>${name}<br>${email} </h3>
 <br><br>
 
+<form method = "POST" action="readTweets/?${token}">
+<input  type="hidden"  name="userId" value = "${userID}" />
+<input type="submit" name= "submit" value="Tweets" />
+</form>
+&nbsp;&nbsp;
+
+<form method = "POST" action="listfollowers/?${token}">
+<input  type="hidden"  name="userId" value = "${userID}" />
+<input type="submit" name= "submit" value="Followers" />
+</form>
+&nbsp;&nbsp;
+
+<form method = "POST" action="listfollowing/?${token}">
+<input  type="hidden"  name="userId" value = "${userID}" />
+<input type="submit" name= "submit" value="Following" />
+</form>
+&nbsp;&nbsp;
+
+<form method = "POST" action="listpeople/?${token}">
+<input  type="hidden"  name="userId" value = "${userID}" />
+<input type="submit" name= "submit" value="Follow People" />
+</form>
+&nbsp;&nbsp;
+
+<form method = "POST" action="listpeople1/?${token}">
+<input  type="hidden"  name="userId" value = "${userID}" />
+<input type="submit" name= "submit" value="UnFollow People" />
+</form>
+&nbsp;&nbsp;
+
+<%-- 
 <a href="readTweets?userId=${userID}">Tweets</a> &nbsp;&nbsp;
 <a href="listfollowers?userId=${userID}">Followers</a>&nbsp;&nbsp;
 <a href="listfollowing?userId=${userID}">Following</a>&nbsp;&nbsp;
 <a href="listpeople?userId=${userID}">Follow People</a>&nbsp;&nbsp;
 <a href="listpeople1?userId=${userID}">UnFollow People</a>&nbsp;&nbsp;
-
+ --%>
+ 
 <br>
 <p>
-	<form name="MenuForm" action="readSpecificTweets" onsubmit="return ValidateMenuForm();">
+	<form  method = "POST" name="MenuForm" action="readSpecificTweets/?${token} " onsubmit="return ValidateMenuForm();">
 	<input type="text"  name="text" placeholder="SearchTerm" >
 	<input type="hidden"  name="userId" value = "${userID}" >	
 	<input type="submit" value=" Get specific Tweets" >

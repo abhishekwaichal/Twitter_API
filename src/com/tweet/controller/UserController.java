@@ -4,11 +4,10 @@
 package com.tweet.controller;
 
 import java.util.List;
-
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.tweet.domain.Tweet;
 import com.tweet.domain.User;
+import com.tweet.security.TokenUtils;
+import com.tweet.security.TokenUtilsImpl;
 import com.tweet.service.UserService;
 import com.tweet.domain.UserInfo;
 
@@ -65,18 +65,25 @@ public class UserController {
 			mv2.addObject("msg", "Invalid username and/or password !");
 			return mv2;
 		}
-
-		session = request.getSession();
-		session.setAttribute("UserName", ui.getUsername());
+		TokenUtils t = new TokenUtilsImpl();
+		String Token = t.getToken(ui);
 
 		ModelAndView mv = new ModelAndView("Menu");
-
 		mv.addObject("userID", u.getUserid());
 		mv.addObject("email", u.getEmail());
 		mv.addObject("name", u.getName());
 		mv.addObject("userName", u.getUsername());
+		mv.addObject("token", Token);
 
 		return mv;
+	}
+
+
+	@RequestMapping(value = "/logout")
+	public ModelAndView userExit(){
+		System.out.println("In logout controller");
+		session.invalidate();
+		return new ModelAndView("index");
 	}
 
 	/*
@@ -202,11 +209,12 @@ public class UserController {
 	/*
 	 * 
 	 * Handles the request to read tweets for current user
+	 * 
 	 *  
 	*/	
 	@RequestMapping(value = "/readTweets", params = { "userId" })
 	public @ResponseBody
-	List<Tweet> readTweets(@RequestParam("userId") Integer uid1) {
+	List<Tweet> readTweets(@RequestParam("userId") Integer uid1, ServletRequest request) {
 
 		List<Tweet> t = userService.readTweets(uid1);
 

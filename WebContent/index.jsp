@@ -47,7 +47,7 @@ Login screen.
 <body>
 	<p>${errMsg}</p>
 	<div align="center">
-	<form name="LoginForm" action="login" onsubmit="return ValidateLoginForm();">
+	<form method = "POST" name="LoginForm" action="login" onsubmit="return ValidateLoginForm();" >
 		<br/><b>Username:<b><p><input type="text" name="userId" placeholder="User name"/></p>
 		<br/><b>Password:<b><p><input  type="password"  name="password" placeholder="Password"/></p>
 		<br/><p><input type="submit" name= "submit" value="Log In" /></p>
