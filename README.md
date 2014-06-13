@@ -1,7 +1,7 @@
 Twitter_API
 ===========
 
-Twitter like API service with limited functionality using SpringMVC
+Twitter like API service with limited functionality using SpringMVC Framework
 
 A twitter like api service with the following basic functionality: 
 1. a call to read the tweets for a given user (include self-tweets and people being followed by user) 
